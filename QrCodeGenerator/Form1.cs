@@ -14,7 +14,7 @@ namespace QrCodeGenerator
 
         private void btn_generate_Click(object sender, EventArgs e)
         {
-            Random rnd=new Random();
+            Random rnd = new Random();
 
             var fileName = rnd.Next();
 
@@ -24,9 +24,29 @@ namespace QrCodeGenerator
 
             qr.Format = BarcodeFormat.QR_CODE;
 
-            qr.Write(qrLink).Save(@"C:\Users\mako\Desktop\Qr\" + fileName + ".png");
+            //abcdcdfshdgf içermiyorsa sadece space içeriyorsa patlar
+            if (!String.IsNullOrEmpty(txt_link.Text))
+            {
+                qr.Write(qrLink).Save(@"C:\Users\mahmut.gulen\source\repos\mahmutgulen\QrCodeGenerator\QRS\" + fileName + ".png");
 
-            pic_qr.Image = Image.FromFile(@"C:\Users\mako\Desktop\Qr\" + fileName + ".png");
+                pic_qr.Image = Image.FromFile(@"C:\Users\mahmut.gulen\source\repos\mahmutgulen\QrCodeGenerator\QRS\" + fileName + ".png");
+
+                lbl_information.Text = txt_link.Text;
+
+                txt_link.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Alanın doldurulması gereklidir.");
+            }
+
+
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

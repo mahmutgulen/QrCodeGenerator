@@ -24,7 +24,6 @@ namespace QrCodeGenerator
 
             qr.Format = BarcodeFormat.QR_CODE;
 
-            //abcdcdfshdgf içermiyorsa sadece space içeriyorsa patlar
             if (!String.IsNullOrEmpty(txt_link.Text))
             {
                 qr.Write(qrLink).Save(Application.StartupPath+ "QrCodeGenerator" + fileName + ".png");

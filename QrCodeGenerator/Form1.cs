@@ -27,9 +27,9 @@ namespace QrCodeGenerator
             //abcdcdfshdgf içermiyorsa sadece space içeriyorsa patlar
             if (!String.IsNullOrEmpty(txt_link.Text))
             {
-                qr.Write(qrLink).Save(@"C:\Users\mahmut.gulen\source\repos\mahmutgulen\QrCodeGenerator\QRS\" + fileName + ".png");
+                qr.Write(qrLink).Save(Application.StartupPath+ "QrCodeGenerator" + fileName + ".png");
 
-                pic_qr.Image = Image.FromFile(@"C:\Users\mahmut.gulen\source\repos\mahmutgulen\QrCodeGenerator\QRS\" + fileName + ".png");
+                pic_qr.Image = Image.FromFile(Application.StartupPath + "QrCodeGenerator" + fileName + ".png");
 
                 lbl_information.Text = txt_link.Text;
 
